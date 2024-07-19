@@ -81,7 +81,7 @@ class Agent:
         self.breeder = False
         maximos = [15, 10, 25, 4, 30]
         for i in range(len(maximos)):
-            NMRj = 0 + rnd.uniform(0, 1)*(0-maximos[i])#editado para probar
+            NMRj = rnd.uniform(0, 1)*(maximos[i])#editado para probar
             self.x.append(round(NMRj))  # Redondeamos a enteros iniciales
 
     def isFeasible(self):
@@ -118,8 +118,6 @@ class Swarm:
         self.gw = Agent(self.p)
 
     def get_solition(self):
-        print("asdasdasda")
-        print(f"\"{self.g}")
         return f"\"{self.g.x}"
 
     def solve(self):
@@ -217,9 +215,9 @@ if __name__ == "__main__":
     texto=vector_solucion.get_solition()
     x=filtro(texto)
     
-    print("---------------")
-    print(funcionMax(x))
-    print("---------------")
+    #print("---------------")
+    #print(x)
+    #print("---------------")
     feasible_solutions = find_feasible_solutions(max_values)
 
     # Evalúa las soluciones en las funciones objetivo
@@ -233,7 +231,7 @@ if __name__ == "__main__":
     plt.xlabel('Función Max (77x1 + 93x2 + 41x3 + 68x4 + 28x5)')
     plt.ylabel('Función Min (184x1 + 330x2 + 42x3 + 108x4 + 18x5)')
     plt.title('Soluciones factibles evaluadas en las funciones objetivo')
-    plt.scatter(funcionMax(x), funcionMin(x), color='red', label='solucion encontrada con NMR')
+    plt.scatter(funcionMax(x), funcionMin(x), color='red', label='solución encontrada con NMR')
     plt.legend()
     plt.grid(True)
     plt.show()
